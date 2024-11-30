@@ -1,60 +1,44 @@
-.App {
-  text-align: center;
+/* Set the height of html and body to 100% to make sure the map fills the screen */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevents scrolling */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Style for the container div */
+div {
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-.map.div {
+  align-items: center;
+  flex-direction: column;
   font-family: Arial, sans-serif;
-  padding: 20px;
-  max-width: 600px;
-  margin: 0 auto;
+  padding: 200px;
 }
 
-.h1 {
+/* Header style */
+h1 {
   color: #333;
-  font-size: 24px;
+  font-size: 32px;
   margin-bottom: 20px;
+  position: absolute;
+  z-index: 1;
+  top: 20px;
 }
 
-/* SVG container styles */
-.svg {
-  display: block;
-  margin: 0 auto;
-  background-color: #f4f4f4;
-  border-radius: 8px;
+/* SVG map takes up the full screen */
+svg {
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  border: 1px solid #ccc;
+  justify-content: space-between;
+  align-content: center;
+  position: absolute;
+  top: 0;
+  left: 100;
+  z-index: 0; /* Ensure the map stays behind the header and text */
 }
 
 /* Circle (dot) styles */
@@ -62,16 +46,60 @@ circle {
   transition: fill 0.3s ease;
 }
 
-/* Hovered dot styles */
+/* Hover effect for dots */
 circle:hover {
   cursor: pointer;
-  fill: orange;
+  fill: rgb(209, 209, 209);
 }
 
 /* Text displaying hovered dot */
 p {
   font-size: 16px;
   color: #555;
+  z-index: 2;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+/* Add some basic styling for profile cards */
+.profile-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between profile cards */
 }
 
+.profile-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+/* Hover effect for the profile card */
+.profile-card:hover {
+  transform: translateY(-10px); /* Lift the card slightly */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow */
+}
+
+/* Avatar styling */
+.avatar {
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+/* Optional: Adding some padding and margin adjustments */
+.profile-card h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.profile-card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.profile-card li {
+  margin-bottom: 8px;
+}

@@ -1,18 +1,25 @@
 import '../App.css';
 import React, { useState } from "react";
+import { profileData } from '../function/profileData.json';  // Assuming this is in a separate file
+import { Card } from 'react-bootstrap';
 
-function map() {
+function Map() {
   const [dots] = useState([
     { id: 1, x: 100, y: 100 },
     { id: 2, x: 300, y: 150 },
     { id: 3, x: 200, y: 300 },
   ]);
-  const [hoveredDot, setHoveredDot] = useState(0);
+  const [hoveredDot, setHoveredDot] = useState(null);
+  const [selectedProfile, setSelectedProfile] = useState(null); // Track selected profile
+  
+  const handleDotClick = (dotId) => {
+    setSelectedProfile(dotId);
+  };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "20px" }}>
+    <div>
       <h1>Interactive Map</h1>
-      <svg width="500" height="500" style={{ border: "1px solid black" }}>
+      <svg viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet">
         {/* Lines connecting dots */}
         <line
           x1={dots[0].x}
@@ -49,12 +56,13 @@ function map() {
             fill={hoveredDot === dot.id ? "orange" : "red"}
             onMouseEnter={() => setHoveredDot(dot.id)}
             onMouseLeave={() => setHoveredDot(null)}
+            onClick={() => handleDotClick(dot.id)}  // Handle click event
           />
         ))}
       </svg>
-      {hoveredDot && <p>Hovered over dot: {hoveredDot}</p>}
+      <Card selectedProfile={selectedProfile} /> {/* Pass the selectedProfile to Gallery */}
     </div>
   );
 }
 
-export default map;
+export default Map;
