@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.filter-panel {
+  display: flex;
+  justify-content: space-around;
+  font: #0000;
+}
+
+.profile-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
