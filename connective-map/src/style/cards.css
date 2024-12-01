@@ -1,0 +1,107 @@
+/* General reset for html and body */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: auto; /* Prevents scrolling */
+  }
+  
+  /* Style for the container div */
+  .profile-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between profile cards */
+    justify-content: center; /* Center the profile cards */
+    padding: 20px;
+  }
+  
+  /* Profile card style */
+  .profile-card {
+    width: 200px; /* Fixed width for each card */
+    padding: 20px;
+    text-align:center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+  }
+  
+  /* Hover effect for the profile card */
+  .profile-card:hover {
+    transform: translateY(-10px); /* Lift the card slightly */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow */
+  }
+  
+  /* Style when the card is selected */
+  .profile-card.hovered {
+    background-color: #f0f0f0; /* Change background for selected profile */
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+  }
+  
+  /* Avatar image styles */
+  .avatar {
+    border-radius: 50%;
+    margin-bottom: 10px;
+   
+  }
+  
+  /* Text for profile card */
+  .profile-card h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    text-align: center;
+
+  }
+  
+  /* List styles within profile card */
+  .profile-card ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+  }
+  
+  .profile-card li {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* Header style */
+  h1 {
+    text-align: center;
+    font-size: 32px;
+    margin-top: 20px;
+    color: #333;
+  }
+  .cta {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cta-btn {
+    width: 125px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.cta-btn-email {
+    color: #b9212a;
+    border-color: #D1D5DB;
+}
+
+.cta-btn-logo{
+     padding-top: 15px;
+}
+
+.cta-btn-web {
+    color: #b9212a;
+    background-color: transparent;
+    border-color:transparent;
+}

@@ -1,11 +1,11 @@
 import React from 'react';
-import './App.css';  // Make sure you import the CSS file
-import Map from './comp/Map';  // Import the Map component
+import './style/App.css';  // Import the CSS file
+import Cards from './comp/cards';  // Corrected the import name to uppercase
 
 function App() {
   return (
     <div className="App">
-      <Map />  {/* Use the Map component here */}
+      <Cards /> {/* Properly use the Cards component */}
     </div>
   );
 }
