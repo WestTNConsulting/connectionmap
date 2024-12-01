@@ -1,4 +1,5 @@
 import { getImageUrl } from '../function/pro';
+import { getLinkedInUrl } from '../function/pro'; // Adjust the path as needed
 import networkingIcons from '../function/networkingIcons'; // Import networkingIcons
 import '../style/App.css';  // Import the CSS file
 import '../style/cards.css';  // Import the CSS file
@@ -7,14 +8,14 @@ import '../style/cards.css';  // Import the CSS file
 export const profileData = [
   {
     "ID number": "RP-BS-MD-2024-001",
-    "Name": "John Doe",
+    "Name": "Nate Poon",
     "Company": "EcoTech Solutions",
     "Occupation-level": "MID",
     "Occupation": "Sustainability Consultant",
     "Email": "john.doe@example.com",
     "Phone": "+1-123-456-7890",
     "SocialMedia": {
-      "LinkedIn": "linkedin.com/in/johndoe",
+      "LinkedIn": "linkedin.com/in/natepoon/",
       "Twitter": "@johndoe"
     },
     "RecentActivities": "Presented at the GreenTech Summit 2024",
@@ -64,25 +65,25 @@ export default function card({ selectedProfile }) {
         {profileData.map((profile) => (
           <section 
             key={profile["ID number"]} 
-            className={`profile-card ${selectedProfile === profile["ID number"] ? "hovered" : ""}`}
-          >
+            className={`profile-card ${selectedProfile === profile["ID number"] ? "hovered" : ""}`}>
             {/* Dynamically fetch the image URL (you can update this as per your logic) */}
-            <img className="avatar" src={getImageUrl(profile["ID number"])} width={70} height={70} />
+
+            <img className="avatar" alt="" src={getImageUrl(profile["ID number"])} width={70} height={70} />
             <h2>{profile.Name}</h2>
             <p>{profile.Occupation}</p>
+            <p2>{profile.Company}</p2>
+
 
             <ul>
-            <li><b>Networking Group:</b> 
-  <img 
-    src="https://cdn.bniconnectglobal.com/new_template/assets/appicon/favicon.png" 
-    alt="Networking Group Icon" 
-    width="20" 
-    height="20" 
-    style={{ marginLeft: '10px' }} 
-  />
-</li>              <li><b>Industry:</b> {profile.Industry}</li>
-              <li><b>Business Type:</b> {profile.BusinessType}</li>
+              <li>
+                <a  href={getLinkedInUrl(profile.Name)} 
+                  target="_blank" 
+                  rel="noopener noreferrer">
+                  {profile.Name}'s LinkedIn
+                </a></li>
+
               <li><b>Relationship:</b> {profile.RelationshipType}</li>
+
             </ul>
 
             {/* Contact information (email and phone) */}
@@ -104,6 +105,13 @@ export default function card({ selectedProfile }) {
                 </span>
               </a>
             </div> 
+            <img 
+                  src={networkingIcons["BNI"]}
+                  alt="Networking Group Icon" 
+                  width="40" 
+                  height="40" 
+                  style={{ marginLeft: '10px' }} 
+                />
           </section>
         ))}
       </div>

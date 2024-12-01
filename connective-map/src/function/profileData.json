@@ -17,7 +17,7 @@
         "Industry": "Sustainability and Green Technology",
         "BusinessType": "B2B",
         "RelationshipType": "Professional Partner",
-        "NetworkingGroup": "Green Innovators Network",
+        "NetworkingGroup": "BNI",
         "MainConnection": "Emma Smith",
         "PreferredReferral": {
           "Industry": "Renewable Energy",
@@ -54,6 +54,8 @@
     "OccupationDropdown": ["C-Suite", "High-MID", "MID", "LOW", "Owner"],
     "IndustryTypeDropdown": ["Trade", "Service", "Information", "Communication"],
     "BusinessTypeDropdown": ["Business", "Nonprofit", "Schools", "Public Agency", "Gov"],
-    "RelationshipTypeDropdown": ["Referral Partner", "Client", "Lead", "Contact"]
+    "RelationshipTypeDropdown": ["Referral Partner", "Client", "Lead", "Contact"],
+    "NetworkingTypeDropdown": ["BNI", "Chamber", "NAWBO", "DWEN","Others"]
+
   }
   

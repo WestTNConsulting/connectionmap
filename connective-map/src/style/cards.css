@@ -18,7 +18,7 @@ html, body {
   /* Profile card style */
   .profile-card {
     width: 200px; /* Fixed width for each card */
-    padding: 20px;
+    padding: 15px;
     text-align:center;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -48,7 +48,7 @@ html, body {
   /* Text for profile card */
   .profile-card h2 {
     font-size: 1.2em;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     text-align: center;
 
   }
@@ -56,14 +56,15 @@ html, body {
   /* List styles within profile card */
   .profile-card ul {
     list-style-type: none;
-    padding: 0;
+    padding: 10px;
     text-align: left;
   }
   
   .profile-card li {
     margin-bottom: 8px;
+    margin-top: 8px;
     font-size: 14px;
-    color: #555;
+    color: rgb(30, 70, 107);
   }
   
   /* Header style */
