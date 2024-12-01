@@ -1,6 +1,6 @@
-import { getImageUrl } from '../function/pro';
+import { getLinkedInProfileImage } from '../function/pro';
 import { getLinkedInUrl } from '../function/pro'; // Adjust the path as needed
-import networkingIcons from '../function/networkingIcons'; // Import networkingIcons
+import Externallink from '../function/Externallink'; // Import icons
 import '../style/App.css';  // Import the CSS file
 import '../style/cards.css';  // Import the CSS file
 
@@ -57,37 +57,39 @@ export const profileData = [
     }
   }
 ];
-export default function card({ selectedProfile }) {
+
+export default function Card({ selectedProfile }) {
   return (
     <div>
       <h1>Profiles</h1>
       <div className="profile-container">
         {profileData.map((profile) => (
-          <section 
-            key={profile["ID number"]} 
+          <section key={profile["ID number"]} 
             className={`profile-card ${selectedProfile === profile["ID number"] ? "hovered" : ""}`}>
-            {/* Dynamically fetch the image URL (you can update this as per your logic) */}
+            {/* Dynamically fetch the image URL */}
+            <img className="profile-avatar"  alt="" 
+              src={getLinkedInProfileImage(getLinkedInUrl(profile.Name))} 
+              width={70}  height={70} />
 
-            <img className="avatar" alt="" src={getImageUrl(profile["ID number"])} width={70} height={70} />
             <h2>{profile.Name}</h2>
+            <h3>{profile.RelationshipType}</h3>
             <p>{profile.Occupation}</p>
             <p2>{profile.Company}</p2>
+            <p2> {profile.Industry}</p2>
 
-
-            <ul>
-              <li>
-                <a  href={getLinkedInUrl(profile.Name)} 
-                  target="_blank" 
-                  rel="noopener noreferrer">
-                  {profile.Name}'s LinkedIn
-                </a></li>
-
-              <li><b>Relationship:</b> {profile.RelationshipType}</li>
-
+            <ul><li> {/* LinkedIn Icon linked to the respective LinkedIn profile */}
+                <a  href={getLinkedInUrl(profile.Name)} target="_blank" rel="noopener noreferrer"
+                style={{ display: 'inline-block', marginRight: '10px' }}>
+                 
+                  <img src={Externallink.socialMediaIcons["LinkedIn"]}// LinkedIn icon URL from Externallink
+                    alt="LinkedIn Icon" width="40" height="40"/>
+                </a>
+              </li>
             </ul>
+            
 
             {/* Contact information (email and phone) */}
-            <div className="cta">       
+            <div className="cta">
               <a href={`mailto:${profile.Email}`} className="cta-btn cta-btn-email">
                 <span className="cta-btn-icon">
                   <svg width="40" height="40" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -96,22 +98,24 @@ export default function card({ selectedProfile }) {
                   </svg>
                 </span>
               </a>
-              
+
               <a href={`tel:${profile.Phone}`} className="cta-btn cta-btn-phone">
                 <span className="cta-btn-icon">
                   <svg width="2em" height="2em" viewBox="0 0 512 512" stroke="#fff" stroke-width="4" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z" fill="#b9212a"/>  
+                    <path d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z" fill="#b9212a"/>
                   </svg>
                 </span>
               </a>
-            </div> 
+            </div>
+
+            {/* Networking Group Icon */}
             <img 
-                  src={networkingIcons["BNI"]}
-                  alt="Networking Group Icon" 
-                  width="40" 
-                  height="40" 
-                  style={{ marginLeft: '10px' }} 
-                />
+              src={Externallink.networkingIcons["BNI"]}  // Networking Group Icon from Externallink
+              alt="Networking Group Icon"
+              width="40" 
+              height="40" 
+              style={{ marginLeft: '10px' }} 
+            />
           </section>
         ))}
       </div>
