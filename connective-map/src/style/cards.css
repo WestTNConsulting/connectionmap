@@ -78,32 +78,28 @@ html, body {
   .cta {
     margin-top: 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content:center;
 }
 
 .cta-btn {
-    width: 125px;
     height: 34px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2px;
+    gap: 20px;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 14px;
 }
+.cta-btn-icon {
+row-gap: 20px;
+color: #b9212a;
 
-.cta-btn-email {
-    color: #b9212a;
-    border-color: #D1D5DB;
 }
+
 
 .cta-btn-logo{
      padding-top: 15px;
 }
 
-.cta-btn-web {
-    color: #b9212a;
-    background-color: transparent;
-    border-color:transparent;
-}
+
